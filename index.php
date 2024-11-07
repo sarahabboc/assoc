@@ -1,69 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Office Hours</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .hours-container {
-            width: 300px;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .hours-container h2 {
-            margin-top: 0;
-            color: #333;
-        }
-        .day {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eaeaea;
-        }
-        .day:last-child {
-            border-bottom: none;
-        }
-        .day-name {
-            font-weight: bold;
-            color: #555;
-        }
-        .hours {
-            color: #888;
-        }
-    </style>
+<title>arrays</title>
 </head>
+
 <body>
+   <h3>Arrays</h3>
 
-<div class="hours-container">
-    <h2>Office Hours</h2>
-    <?php
-    $office_hours = [
-        "Monday" => "9am - 5pm",
-        "Tuesday" => "9am - 5pm",
-        "Wednesday" => "9am - 5pm",
-        "Thursday" => "9am - 5pm",
-        "Friday" => "9am - 5pm",
-        "Saturday" => "10am - 2pm",
-        "Sunday" => "Closed"
-    ];
+<?php
 
-    foreach ($office_hours as $day => $hours) {
-        echo "<div class='day'><span class='day-name'>$day</span><span class='hours'>$hours</span></div>";
-    }
-    ?>
-</div>
+$flowers = array('rose', 'tulip', 'daisy');
 
+for ($i=0; $i< count($flowers); $i++)
+echo $flowers[$i], '<br />';
+echo "<hr />";
+foreach ($flowers as $item)
+echo $item, '<br />';
+
+echo "<hr /><h3>Associative Arrays</h3>";
+
+$prices = array( 'Widget'=>100, 'Gadget'=>10, 'Things'=>4 );
+echo $prices['Gadget'];
+$prices['Things'] = 6;
+$prices['Junk'] = 20;
+echo "<hr />";
+foreach ($prices as $item=>$price)
+    echo ("$item costs $$price<br />");
+echo "<hr />";
+$keys = array_keys($prices);
+for ($i=0; $i< count($prices); $i++)
+{
+    $item =  $keys[$i];
+    $price = $prices[$item];
+    echo ("$item costs $$price<br />");
+}
+extract($prices);
+echo "<hr />";
+echo "Widget is: $Widget";
+?>
+
+	
 </body>
 </html>
